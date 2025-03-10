@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os.path
+import dj_database_url
 from pathlib import Path
 
 from django.conf.global_settings import STATICFILES_DIRS
@@ -79,13 +80,7 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carzone_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Adedeji77#',
-        'HOST': 'localhost',
-    }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
